@@ -28,7 +28,7 @@ app.get('/oroville_lake', async (req, res) => {
 // })
 
 app.get('/trinity_lake', async (req, res) => {
-  res.json(trinity_lake_json)
+  res.json({ height: 75 })
 })
 
 app.listen(port, () => {
