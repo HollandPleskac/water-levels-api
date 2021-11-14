@@ -21,8 +21,13 @@ app.get('/', (req, res) => {
 })
 
 app.get('/oroville_lake', async (req, res) => {
-  res.json(oroville_lake_json)
+  console.log("hit oroville_lake endpoint")
+  res.json({height: 50})
 })
+
+// app.get('/oroville_lake', async (req, res) => {
+//   res.json(oroville_lake_json)
+// })
 
 app.get('/trinity_lake', async (req, res) => {
   res.json(trinity_lake_json)
