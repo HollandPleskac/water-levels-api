@@ -2,7 +2,7 @@ const oroville_lake_json = require('./json_data/oroville_lake.json')
 const trinity_lake_json = require('./json_data/trinity_lake.json')
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.port || 3000;
 
 // app.use(express.json());
 
