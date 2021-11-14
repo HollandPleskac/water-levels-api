@@ -16,14 +16,13 @@ app.use(function (req, res, next) {
 });
 
 
-
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('<h1>Hello World!</h1>')
 })
 
 app.get('/oroville_lake', async (req, res) => {
   console.log("hit oroville_lake endpoint")
-  res.json({height: 50})
+  res.json({ height: 50 })
 })
 
 // app.get('/oroville_lake', async (req, res) => {
