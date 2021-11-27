@@ -23,12 +23,16 @@ app.get('/oroville_lake', async (req, res) => {
   res.json({ height: 50 })
 })
 
-// app.get('/oroville_lake', async (req, res) => {
-//   res.json(oroville_lake_json)
-// })
+app.get('/oroville_lake_historical_avg', async (req, res) => {
+  res.json({height:100})
+})
 
 app.get('/trinity_lake', async (req, res) => {
   res.json({ height: 75 })
+})
+
+app.get('/trinity_lake_historical_avg', async (req, res) => {
+  res.json({ height: 150 })
 })
 
 app.listen(port, () => {
