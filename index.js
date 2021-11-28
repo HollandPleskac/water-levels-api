@@ -22,40 +22,44 @@ app.get('/', (req, res) => {
 
 // GET HEIGHTS
 
-app.get('/oroville_lake', async (req, res) => {
+app.get('/oroville_lake', (req, res) => {
   console.log("hit oroville_lake endpoint")
   res.json({ height: orovilleHt })
 })
 
-app.get('/oroville_lake_historical_avg', async (req, res) => {
+app.get('/oroville_lake_historical_avg', (req, res) => {
   res.json({height:orovilleHistAvg})
 })
 
-app.get('/trinity_lake', async (req, res) => {
+app.get('/trinity_lake', (req, res) => {
   res.json({ height: trinityHt })
 })
 
-app.get('/trinity_lake_historical_avg', async (req, res) => {
+app.get('/trinity_lake_historical_avg', (req, res) => {
   res.json({ height: trinityHistAvg })
 })
 
 
 // SET HEIGHTS
 
-app.post('/oroville_ht', async(req, res) => {
+app.post('/oroville_ht',(req, res) => {
   orovilleHt+=req.body.amt
+  res.json({ newHeight: orovilleHt })
 })
 
-app.post('/trinity_ht', async (req, res) => {
+app.post('/trinity_ht', (req, res) => {
   trinityHt += req.body.amt
+  res.json({ newHeight: trinityHt })
 })
 
-app.post('/oroville_hist_avg', async (req, res) => {
+app.post('/oroville_hist_avg', (req, res) => {
   orovilleHistAvg += req.body.amt
+  res.json({ newHeight: orovilleHistAvg })
 })
 
-app.post('/trinity_hist_avg', async (req, res) => {
+app.post('/trinity_hist_avg', (req, res) => {
   trinityHistAvg += req.body.amt
+  res.json({ newHeight: trinityHistAvg })
 })
 
 
