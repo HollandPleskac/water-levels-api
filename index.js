@@ -3,8 +3,8 @@ const app = express()
 const port = process.env.PORT || 3000;
 
 let orovilleHt = 50
-let trinityHt = 100
-let orovilleHistAvg = 75
+let trinityHt = 75
+let orovilleHistAvg = 100
 let trinityHistAvg = 150
 
 app.use(express.json());
