@@ -1,8 +1,11 @@
-const oroville_lake_json = require('./json_data/oroville_lake.json')
-const trinity_lake_json = require('./json_data/trinity_lake.json')
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000;
+
+let orovilleHt = 50
+let trinityHt = 100
+let orovilleHistAvg = 75
+let trinityHistAvg = 150
 
 app.use(express.json());
 
@@ -13,38 +16,50 @@ app.use(function (req, res, next) {
   next();
 });
 
-
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>')
 })
 
+// GET HEIGHTS
+
 app.get('/oroville_lake', async (req, res) => {
   console.log("hit oroville_lake endpoint")
-  res.json({ height: 50 })
+  res.json({ height: orovilleHt })
 })
 
 app.get('/oroville_lake_historical_avg', async (req, res) => {
-  res.json({height:100})
+  res.json({height:orovilleHistAvg})
 })
 
 app.get('/trinity_lake', async (req, res) => {
-  res.json({ height: 75 })
+  res.json({ height: trinityHt })
 })
 
 app.get('/trinity_lake_historical_avg', async (req, res) => {
-  res.json({ height: 150 })
+  res.json({ height: trinityHistAvg })
 })
+
+
+// SET HEIGHTS
+
+app.post('/oroville_ht', async(req, res) => {
+  orovilleHt++
+})
+
+app.post('/trinity_ht', async (req, res) => {
+  trinityHt++
+})
+
+app.post('/oroville_hist_avg', async (req, res) => {
+  orovilleHistAvg++
+})
+
+app.post('/trinity_hist_avg', async (req, res) => {
+  trinityHistAvg++
+})
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
-
-// historical avg calculated based on last 5 years
-
-// lastest data retrieved using this api
-
-// trigger calls smart contract -> 
-// smart contract alls this api
-// api gives json data
-// smart contract (given latest month) -> compares to latest month in json
-// if over -> distribute money
