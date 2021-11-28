@@ -43,19 +43,19 @@ app.get('/trinity_lake_historical_avg', async (req, res) => {
 // SET HEIGHTS
 
 app.post('/oroville_ht', async(req, res) => {
-  orovilleHt++
+  orovilleHt+=req.body.amt
 })
 
 app.post('/trinity_ht', async (req, res) => {
-  trinityHt++
+  trinityHt += req.body.amt
 })
 
 app.post('/oroville_hist_avg', async (req, res) => {
-  orovilleHistAvg++
+  orovilleHistAvg += req.body.amt
 })
 
 app.post('/trinity_hist_avg', async (req, res) => {
-  trinityHistAvg++
+  trinityHistAvg += req.body.amt
 })
 
 
