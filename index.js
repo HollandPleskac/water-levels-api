@@ -2,10 +2,10 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000;
 
-let orovilleHt = 50
-let trinityHt = 75
-let orovilleHistAvg = 100
-let trinityHistAvg = 150
+let donPedroHt = 1115
+let modestoHt = 204
+let donPedroHistAvg = 1350
+let modestoHistAvg = 604
 
 app.use(express.json());
 
@@ -22,44 +22,44 @@ app.get('/', (req, res) => {
 
 // GET HEIGHTS
 
-app.get('/oroville_lake', (req, res) => {
-  console.log("hit oroville_lake endpoint")
-  res.json({ height: orovilleHt })
+app.get('/don_pedro_reservoir', (req, res) => {
+  console.log("hit don pedro endpoint")
+  res.json({ height: donPedroHt })
 })
 
-app.get('/oroville_lake_historical_avg', (req, res) => {
-  res.json({height:orovilleHistAvg})
+app.get('/don_pedro_historical_avg', (req, res) => {
+  res.json({height:donPedroHistAvg})
 })
 
-app.get('/trinity_lake', (req, res) => {
-  res.json({ height: trinityHt })
+app.get('/modesto_reservoir', (req, res) => {
+  res.json({ height: modestoHt })
 })
 
-app.get('/trinity_lake_historical_avg', (req, res) => {
-  res.json({ height: trinityHistAvg })
+app.get('/modesto_reservoir_historical_avg', (req, res) => {
+  res.json({ height: modestoHistAvg })
 })
 
 
 // SET HEIGHTS
 
-app.post('/oroville_ht',(req, res) => {
-  orovilleHt+=req.body.amt
-  res.json({ newHeight: orovilleHt })
+app.post('/don_pedro_ht',(req, res) => {
+  donPedroHt+=req.body.amt
+  res.json({ newHeight: donPedroHt })
 })
 
-app.post('/trinity_ht', (req, res) => {
-  trinityHt += req.body.amt
-  res.json({ newHeight: trinityHt })
+app.post('/modesto_ht', (req, res) => {
+  modestoHt += req.body.amt
+  res.json({ newHeight: modestoHt })
 })
 
-app.post('/oroville_hist_avg', (req, res) => {
-  orovilleHistAvg += req.body.amt
-  res.json({ newHeight: orovilleHistAvg })
+app.post('/don_pedro_hist_avg', (req, res) => {
+  donPedroHistAvg += req.body.amt
+  res.json({ newHeight: donPedroHistAvg })
 })
 
-app.post('/trinity_hist_avg', (req, res) => {
-  trinityHistAvg += req.body.amt
-  res.json({ newHeight: trinityHistAvg })
+app.post('/modesto_hist_avg', (req, res) => {
+  modestoHistAvg += req.body.amt
+  res.json({ newHeight: modestoHistAvg })
 })
 
 
